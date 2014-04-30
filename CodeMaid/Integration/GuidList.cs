@@ -7,15 +7,9 @@ namespace ReSharperFormatOnSave.Integration
   public static class GuidList
   {
     public const string GuidCodeMaidPackageString
-      = "4c82e17d-927e-42d2-8460-b473ac7df316";
-
-    public static readonly Guid GuidCodeMaidCommandCleanupActiveCode
-      = new Guid("36de540f-25cb-4151-957f-d63a5a3a10a7");
+      = "B56331B1-E575-4523-AB0A-10726962CF12";
 
     public static readonly Guid RunFormatOnSave
-      = new Guid("56718f89-01d2-4405-99b5-4aa665af5947");
-
-    public static readonly Guid GuidCodeMaidOutputPane
-      = new Guid("C72A7D06-77CD-4E80-99C8-D94D9A442BE0");
+      = new Guid("F1257945-4C6F-48AA-83CB-770ACC63DB53");
   };
 }

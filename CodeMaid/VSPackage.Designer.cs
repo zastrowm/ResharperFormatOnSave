@@ -79,7 +79,7 @@ namespace ReSharperFormatOnSave {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1.1.0.
+        ///   Looks up a localized string similar to 1.2.0.
         /// </summary>
         internal static string _114 {
             get {
