@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SteveCadwallader.CodeMaid.UI.Dialogs.Options.Cleaning">
+    <DataTemplate DataType="{x:Type local:CleaningCommentsViewModel}">
+        <StackPanel IsEnabled="{Binding IsEnabled}">
+            <GroupBox Header="General">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Wrap comments at column" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding CommentWrapColumn, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" Width="40" />
+                    </StackPanel>
+
+                    <CheckBox Content="Skip wrapping on the last word" IsChecked="{Binding CommentSkipWrapOnLastWord}" />
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Extra indent for values inside XML comments" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding CommentXmlValueIndent, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" Width="40" />
+                    </StackPanel>
+
+                    <CheckBox Content="Add spacing around XML tags" IsChecked="{Binding CommentXmlSpaceTags}" />
+                    <CheckBox Content="Align XML &lt;param&gt; tags" IsChecked="{Binding CommentXmlAlignParamTags}" />
+                    <CheckBox Content="Always split summary tags onto multiple lines" IsChecked="{Binding CommentXmlSplitSummaryTagToMultipleLines}" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Cleanup">
+                <CheckBox Content="Run format comments during cleanup" IsChecked="{Binding CommentRunDuringCleanup}" />
+            </GroupBox>
+
+            <GroupBox Header="Preview" VerticalAlignment="Stretch">
+                <TextBox FontFamily="{Binding CommentPreviewTextFont}"
+                         Foreground="{Binding CommentPreviewTextForeground}"
+                         Background="{Binding CommentPreviewTextBackground}"
+                         Text="{Binding CommentPreviewText}"
+                         Padding="3"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch" />
+            </GroupBox>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>
