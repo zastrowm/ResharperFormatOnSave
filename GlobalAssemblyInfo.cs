@@ -1,14 +1,15 @@
+// Copyright (c) 2013 Cognex Corporation. All Rights Reserved
+
 using System;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyDescription("CodeMaid is an open source Visual Studio extension to cleanup, dig through and simplify our C#, C++, F#, VB, XAML, XML, ASP, HTML, CSS, LESS, JavaScript and TypeScript coding.")]
-[assembly: AssemblyCompany("Steve Cadwallader")]
-[assembly: AssemblyProduct("CodeMaid")]
-[assembly: AssemblyCopyright("Copyright 2007-2014 Steve Cadwallader (LGPL v3)")]
+[assembly: AssemblyDescription("Automatically format a document when it is saved, using ReSharper")]
+[assembly: AssemblyCompany("Mackenzie Zastrow")]
+[assembly: AssemblyProduct("ReSharper Format On Save")]
 [assembly: CLSCompliant(false)]
 [assembly: ComVisible(false)]
 [assembly: NeutralResourcesLanguage("en-US")]
-[assembly: AssemblyVersion("0.7.1")]
-[assembly: AssemblyFileVersion("0.7.1")]
+[assembly: AssemblyVersion("1.1.0")]
+[assembly: AssemblyFileVersion("1.1.0")]
