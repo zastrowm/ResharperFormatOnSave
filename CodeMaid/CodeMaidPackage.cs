@@ -220,6 +220,7 @@ namespace ReSharperFormatOnSave
       {
         // Create the individual commands, which internally register for command events.
         _commands.Add(new ToggleFormatOnSaveCommand(this));
+        _commands.Add(new ToggleLargeFilesCommand(this));
 
         // Add all commands to the menu command service.
         foreach (var command in _commands)
@@ -271,7 +272,7 @@ namespace ReSharperFormatOnSave
 
       using (new ActiveDocumentRestorer(this))
       {
-        CodeCleanupManager.Cleanup(document, true);
+        CodeCleanupManager.Cleanup(document);
       }
     }
 

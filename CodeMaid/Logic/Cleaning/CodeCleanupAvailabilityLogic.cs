@@ -22,7 +22,7 @@ namespace ReSharperFormatOnSave.Logic.Cleaning
     private readonly CodeMaidPackage _package;
 
     private readonly CachedSettingSet<string> _cleanupExclusions =
-      new CachedSettingSet<string>(() => Settings.Default.Cleaning_ExclusionExpression,
+      new CachedSettingSet<string>(() => Settings.Default.Compatibility_ExclusionExpression,
                                    expression =>
                                    expression.Split(new[] {"||"}, StringSplitOptions.RemoveEmptyEntries)
                                              .Select(x => x.Trim().ToLower())
@@ -121,8 +121,8 @@ namespace ReSharperFormatOnSave.Logic.Cleaning
              !IsDocumentExcludedBecauseExternal(document, allowUserPrompts) &&
              !IsFileNameExcludedByOptions(document.Name) &&
              !IsParentCodeGeneratorExcludedByOptions(document) &&
-             Settings.Default.Compatibility_UseReSharperSilentCleanup &&
-             GetLineLength(document) < 2500;
+             Settings.Default.EnableFormatOnSave &&
+             (Settings.Default.FormatLargeFiles || GetLineLength(document) < 2500);
     }
 
     private static int GetLineLength(Document document)

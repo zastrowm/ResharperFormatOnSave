@@ -1,18 +1,15 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SteveCadwallader.CodeMaid.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ReSharperFormatOnSave.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Compatibility_UseReSharperSilentCleanup" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="Cleaning_ExclusionExpression" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="General_UseUndoTransactions" Type="System.Boolean" Scope="User">
+    <Setting Name="FormatLargeFiles" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="General_SkipUndoTransactionsDuringAutoCleanupOnSave" Type="System.Boolean" Scope="User">
+    <Setting Name="EnableFormatOnSave" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Compatibility_ExclusionExpression" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

@@ -66,12 +66,12 @@ namespace ReSharperFormatOnSave.Helpers
     public void Run(Func<bool> undoConditions, Action tryAction, Action<Exception> catchAction)
     {
       // Start an undo transaction (unless inside one already or other undo conditions are not met).
-      bool shouldCloseUndoContext = false;
-      if (!_package.IDE.UndoContext.IsOpen && undoConditions() && Settings.Default.General_UseUndoTransactions)
-      {
-        _package.IDE.UndoContext.Open(_transactionName);
-        shouldCloseUndoContext = true;
-      }
+      // bool shouldCloseUndoContext = false;
+      //if (!_package.IDE.UndoContext.IsOpen && undoConditions() && Settings.Default.Compatibility_UseUndoTransactions)
+      //{
+      //  _package.IDE.UndoContext.Open(_transactionName);
+      //  shouldCloseUndoContext = true;
+      //}
 
       try
       {
@@ -81,19 +81,19 @@ namespace ReSharperFormatOnSave.Helpers
       {
         catchAction(ex);
 
-        if (shouldCloseUndoContext)
-        {
-          _package.IDE.UndoContext.SetAborted();
-          shouldCloseUndoContext = false;
-        }
+        //if (shouldCloseUndoContext)
+        //{
+        //  _package.IDE.UndoContext.SetAborted();
+        //  shouldCloseUndoContext = false;
+        //}
       }
       finally
       {
-        // Always close the undo transaction to prevent ongoing interference with the IDE.
-        if (shouldCloseUndoContext)
-        {
-          _package.IDE.UndoContext.Close();
-        }
+        //// Always close the undo transaction to prevent ongoing interference with the IDE.
+        //if (shouldCloseUndoContext)
+        //{
+        //  _package.IDE.UndoContext.Close();
+        //}
       }
     }
 

@@ -172,6 +172,7 @@
     <Compile Include="Helpers\UndoTransactionHelper.cs" />
     <Compile Include="Integration\Commands\BaseCommand.cs" />
     <Compile Include="Integration\Commands\ToggleFormatOnSaveCommand.cs" />
+    <Compile Include="Integration\Commands\ToggleLargeFilesCommand.cs" />
     <Compile Include="Integration\Events\BaseEventListener.cs" />
     <Compile Include="Integration\Events\RunningDocumentTableEventListener.cs" />
     <Compile Include="Integration\Events\ShellEventListener.cs" />

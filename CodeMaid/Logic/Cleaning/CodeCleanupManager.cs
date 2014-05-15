@@ -59,14 +59,11 @@ namespace ReSharperFormatOnSave.Logic.Cleaning
 
     #endregion Constructors
 
-    #region Internal Methods
-
     /// <summary>
     /// Attempts to run code cleanup on the specified document.
     /// </summary>
     /// <param name="document">The document for cleanup.</param>
-    /// <param name="isAutoSave">A flag indicating if occurring due to auto-save.</param>
-    internal void Cleanup(Document document, bool isAutoSave = false)
+    internal void Cleanup(Document document)
     {
       if (!_codeCleanupAvailabilityLogic.ShouldCleanup(document, true))
         return;
@@ -81,36 +78,17 @@ namespace ReSharperFormatOnSave.Logic.Cleaning
       }
 
       _undoTransactionHelper.Run(
-        () => !(isAutoSave && Settings.Default.General_SkipUndoTransactionsDuringAutoCleanupOnSave),
-        delegate
-          {
-            _package.IDE.StatusBar.Text = String.Format("ReSharperAutoSave is formatting '{0}'...", document.Name);
-
-            // Perform the set of configured cleanups based on the language.
-            var textDocument = (TextDocument) document.Object("TextDocument");
-            RunReSharperSilentCleanup(textDocument);
-
-            _package.IDE.StatusBar.Text = String.Format("ReSharperAutoSave formatted '{0}'.", document.Name);
-          },
-        delegate(Exception ex)
-          {
-            // OutputWindowHelper.WriteLine(String.Format("ReSharperAutoSave stopped formatting '{0}': {1}", document.Name, ex));
-            _package.IDE.StatusBar.Text =
-              String.Format("ReSharperAutoSave stopped formatting '{0}'.  See output window for more details.",
-                            document.Name);
-          });
+        () => false,
+        () => PerformFormat(document),
+        ex => HandleException(document, ex));
     }
 
-    #endregion Internal Methods
-
-    #region Private Cleanup Methods
-
-    /// <summary>
-    /// Runs the ReSharper silent cleanup command.
-    /// </summary>
-    /// <param name="textDocument">The text document to cleanup.</param>
-    private void RunReSharperSilentCleanup(TextDocument textDocument)
+    /// <summary> Perform formatting on the specified document. </summary>
+    private void PerformFormat(Document document)
     {
+      _package.IDE.StatusBar.Text = String.Format("ReSharperAutoSave is formatting '{0}'...", document.Name);
+      // Perform the set of configured cleanups based on the language.
+      var textDocument = (TextDocument)document.Object("TextDocument");
       try
       {
         using (new CursorPositionRestorer(textDocument))
@@ -122,8 +100,18 @@ namespace ReSharperFormatOnSave.Logic.Cleaning
       {
         // OK if fails, not available for some file types.
       }
+
+      _package.IDE.StatusBar.Text = String.Format("ReSharperAutoSave formatted '{0}'.", document.Name);
     }
 
-    #endregion Private Cleanup Methods
+    /// <summary> Handle any exception that occurs while attempting to cleanup the document. </summary>
+    private void HandleException(Document document, Exception ex)
+    {
+      // OutputWindowHelper.WriteLine(String.Format("ReSharperAutoSave stopped formatting '{0}': {1}", document.Name, ex));
+      _package.IDE.StatusBar.Text =
+        String.Format("ReSharperAutoSave stopped formatting '{0}': See output window for more details. {1}",
+                      document.Name,
+                      ex);
+    }
   }
 }

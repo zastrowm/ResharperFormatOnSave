@@ -12,7 +12,7 @@ namespace ReSharperFormatOnSave.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,49 +25,37 @@ namespace ReSharperFormatOnSave.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool Compatibility_UseReSharperSilentCleanup {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool FormatLargeFiles {
             get {
-                return ((bool)(this["Compatibility_UseReSharperSilentCleanup"]));
+                return ((bool)(this["FormatLargeFiles"]));
             }
             set {
-                this["Compatibility_UseReSharperSilentCleanup"] = value;
+                this["FormatLargeFiles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableFormatOnSave {
+            get {
+                return ((bool)(this["EnableFormatOnSave"]));
+            }
+            set {
+                this["EnableFormatOnSave"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Cleaning_ExclusionExpression {
+        public string Compatibility_ExclusionExpression {
             get {
-                return ((string)(this["Cleaning_ExclusionExpression"]));
+                return ((string)(this["Compatibility_ExclusionExpression"]));
             }
             set {
-                this["Cleaning_ExclusionExpression"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool General_UseUndoTransactions {
-            get {
-                return ((bool)(this["General_UseUndoTransactions"]));
-            }
-            set {
-                this["General_UseUndoTransactions"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool General_SkipUndoTransactionsDuringAutoCleanupOnSave {
-            get {
-                return ((bool)(this["General_SkipUndoTransactionsDuringAutoCleanupOnSave"]));
-            }
-            set {
-                this["General_SkipUndoTransactionsDuringAutoCleanupOnSave"] = value;
+                this["Compatibility_ExclusionExpression"] = value;
             }
         }
     }

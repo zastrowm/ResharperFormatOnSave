@@ -9,7 +9,7 @@ namespace ReSharperFormatOnSave.Integration
     public const string GuidCodeMaidPackageString
       = "B56331B1-E575-4523-AB0A-10726962CF12";
 
-    public static readonly Guid RunFormatOnSave
+    public static readonly Guid Commands
       = new Guid("F1257945-4C6F-48AA-83CB-770ACC63DB53");
   };
 }
