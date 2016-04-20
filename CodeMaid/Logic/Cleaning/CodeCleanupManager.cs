@@ -93,7 +93,17 @@ namespace ReSharperFormatOnSave.Logic.Cleaning
       {
         using (new CursorPositionRestorer(textDocument))
         {
-          _package.IDE.ExecuteCommand("ReSharper_SilentCleanupCode", String.Empty);
+          if (_resharperSilentCleanupCommand == null)
+          {
+            _resharperSilentCleanupCommand = FindCommand("ReSharper_SilentCleanupCode",
+                                                         "ReSharper.ReSharper_SilentCleanupCode");
+          }
+
+          if (_resharperSilentCleanupCommand != null)
+          {
+            var nameOfCommand = _resharperSilentCleanupCommand.Name;
+            _package.IDE.ExecuteCommand(nameOfCommand, String.Empty);
+          }
         }
       }
       catch
@@ -102,6 +112,21 @@ namespace ReSharperFormatOnSave.Logic.Cleaning
       }
 
       _package.IDE.StatusBar.Text = String.Format("ReSharperAutoSave formatted '{0}'.", document.Name);
+    }
+
+    private Command _resharperSilentCleanupCommand;
+
+    /// <summary>
+    /// Finds a command of any of the specified names, otherwise null.
+    /// </summary>
+    /// <param name="commandNames">The command names.</param>
+    /// <returns>The found command, otherwise null.</returns>
+    public Command FindCommand(params string[] commandNames)
+    {
+      if (commandNames == null || commandNames.Length == 0)
+        return null;
+
+      return _package.IDE.Commands.OfType<Command>().FirstOrDefault(x => commandNames.Contains(x.Name));
     }
 
     /// <summary> Handle any exception that occurs while attempting to cleanup the document. </summary>
