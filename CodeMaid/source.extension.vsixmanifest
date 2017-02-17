@@ -1,32 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
-  <Identifier Id="B56331B1-E575-4523-AB0A-10726962CF12">
-    <Name>ReSharper Format On Save</Name>
-    <Author>Mackenzie Zastrow, Steve Cadwallader</Author>
-    <Version>3.0.0</Version>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Publisher="Mackenzie Zastrow, Steve Cadwallader, Sebastian Walter" Version="3.0.1" Id="B56331B1-E575-4523-AB0A-10726962CF12" Language="en-US" />
+    <DisplayName>ReSharper Format On Save</DisplayName>
     <Description xml:space="preserve">Automatically format a document when it is saved, using ReSharper.</Description>
-    <Locale>1033</Locale>
-    <License>lgpl-3.0.rtf</License>
-    <InstalledByMsi>false</InstalledByMsi>
-    <SupportedProducts>
-      <VisualStudio Version="14.0">
-        <Edition>Pro</Edition>
-      </VisualStudio>
-      <VisualStudio Version="12.0">
-        <Edition>Pro</Edition>
-      </VisualStudio>
-      <VisualStudio Version="11.0">
-        <Edition>Pro</Edition>
-      </VisualStudio>
-    </SupportedProducts>
-    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
-  </Identifier>
-  <References>
-    <Reference Id="Microsoft.VisualStudio.MPF" MinVersion="10.0">
-      <Name>Visual Studio MPF</Name>
-    </Reference>
-  </References>
-  <Content>
-    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
-  </Content>
-</Vsix>
+    <Tags>build, code, c#, beautify, cleanup, cleaning, digging, reorganizing, formatting, resharper</Tags>
+  </Metadata>
+
+  <Installation>
+    <InstallationTarget Version="[14.0,16.0)" Id="Microsoft.VisualStudio.Community" />
+    <InstallationTarget Version="[11.0,16.0)" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.11.0" DisplayName="Visual Studio MPF 11.0" d:Source="Installed" Version="[11.0]" />
+  </Dependencies>
+
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0.25904.2,16.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>
