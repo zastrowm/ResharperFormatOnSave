@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Publisher="Mackenzie Zastrow, Steve Cadwallader, Sebastian Walter" Version="3.0.1" Id="4c82e17d-927e-42d2-8460-b473ac7df316" Language="en-US" />
+    <Identity Publisher="Mackenzie Zastrow, Steve Cadwallader, Sebastian Walter" Version="3.0.1" Id="B56331B1-E575-4523-AB0A-10726962CF12" Language="en-US" />
     <DisplayName>ReSharper Format On Save</DisplayName>
     <Description xml:space="preserve">Automatically format a document when it is saved, using ReSharper.</Description>
     <Tags>build, code, c#, beautify, cleanup, cleaning, digging, reorganizing, formatting, resharper</Tags>
